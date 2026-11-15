@@ -1,0 +1,4 @@
+files_changed_total,lines_added,lines_deleted,total_churn,day_of_week,hour_of_day,project_historical_failure_rate,recent_5_build_failure_rate,recent_10_build_failure_rate,consecutive_failures,time_since_last_failure_hours,author_historical_failure_rate,author_recent_failure_rate,history_build_count,author_history_count,dependency_file_changed,configuration_file_changed,ci_workflow_changed,docker_file_changed
+2,15,3,18,1,10,0.10,0.20,0.10,0,48,0.05,0,100,20,0,0,0,0
+30,600,200,800,3,16,0.30,0.60,0.50,2,1,0.25,0.40,100,12,1,1,0,0
+1,2,0,2,0,9,,,,0,,,,0,0,,,,

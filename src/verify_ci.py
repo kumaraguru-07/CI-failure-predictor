@@ -29,17 +29,19 @@ def main():
     assert manifest["model_sha256"]==json.loads(frozen.read_text())["model_sha256"]
     local_records=rows("data/ci/predictions.sqlite3")
     matching=[r for r in local_records if r["prediction_id"]==snapshot["prediction_id"]]
-    assert len(matching)==1 and matching[0]["result"] is None
+    assert len(matching)==1
+    assert abs(matching[0]["probability"]-snapshot["prediction"]["failure_probability"])<1e-12
     report={"status":"local_verification_passed","package_sha256":expected,
         "package_size_bytes":a.bundle.stat().st_size,"model_sha256":manifest["model_sha256"],
         "frozen_evaluation_unchanged":True,"package_prediction_difference":difference,
         "live_reference_snapshot":{"repository":snapshot["repository"],"commit_sha":snapshot["commit_sha"],
             "collected_at":snapshot["as_of"],"history_rows":snapshot["feature_coverage"]["history_rows"],
             "risk_level":explanation["risk_level"],"failure_probability":explanation["failure_probability"]},
-        "local_ledger_pending_record_verified":True,"actual_ci_outcome_collected":False,
-        "mandatory_tests_required":True,"github_hosted_workflow_executed":False,
-        "activation_blocker":"No GitHub remote configured; repository URL and release/variable setup required"}
-    Path("reports/STEP_7_VERIFICATION.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+        "local_ledger_record_verified":True,"snapshot_outcome":matching[0]["result"],
+        "actual_outcomes_in_local_ledger":sum(r["result"] in ("success","failure") for r in local_records),
+        "mandatory_tests_required":True,"verifier_executes_hosted_workflows":False,
+        "scope":"Offline replay only; hosted evidence remains in STEP_7_VERIFICATION.json"}
+    Path("reports/CI_LOCAL_VERIFICATION.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
     print(json.dumps(report,indent=2))
 
 if __name__=="__main__":

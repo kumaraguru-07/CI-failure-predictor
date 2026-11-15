@@ -149,3 +149,25 @@ def test_bad_upload_is_an_error_message_not_an_exception(dashboard_root,monkeypa
     at.selectbox(key="view").select("Predict from CSV").run()
     assert not at.exception
     assert at.error and "Missing required columns" in at.error[0].value
+
+def test_persistent_ci_history_displays_known_and_pending_outcomes_without_writes(dashboard_root):
+    from src.ci_history import record
+    db=dashboard_root/"data/ci/predictions.sqlite3"
+    p={"status":"predicted","prediction_id":"observed","repository":"owner/repo",
+        "commit_sha":"a"*40,"run_id":"123","run_attempt":1,"as_of":"2026-01-01T00:00:00+00:00",
+        "model_sha256":"b"*64,"prediction":{"failure_probability":.2,"risk_level":"HIGH"}}
+    record(db,p,"failure","2026-01-01T01:00:00+00:00")
+    record(db,{**p,"prediction_id":"pending","run_id":"124"})
+    before=file_digest(db)
+    at=AppTest.from_file(str(APP),default_timeout=30).run()
+    at.selectbox(key="view").select("CI outcome history").run()
+    assert not at.exception and not at.error
+    assert len(at.dataframe[0].value)==1
+    assert at.dataframe[0].value.iloc[0]["Actual outcome"]=="Failed"
+    at.checkbox(key="include_pending_ci").check().run()
+    assert not at.exception and len(at.dataframe[0].value)==2
+    assert file_digest(db)==before
+
+def test_ci_history_empty_state_does_not_create_database(dashboard_root):
+    assert data.ci_outcome_data(dashboard_root).empty
+    assert not (dashboard_root/"data/ci/predictions.sqlite3").exists()

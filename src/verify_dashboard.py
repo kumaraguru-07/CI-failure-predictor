@@ -20,14 +20,14 @@ def main():
     explanation = at.session_state["last_explanation"]["result"]
     assert explanation["risk_level"]=="HIGH"
     assert explanation["ci_recommendation"]["mandatory_checks_required"]
-    for page in ("Model results","Predict from CSV","Session history"):
+    for page in ("Model results","Predict from CSV","CI outcome history","Session history"):
         at.selectbox(key="view").select(page).run()
         assert not at.exception and not at.error
     assert len(at.session_state["prediction_history"])==1
     assert file_digest(model)==before
     assert file_digest(evaluation)==test_report_before
     report = {"status":"passed","validation_builds":initial_count,
-        "views_checked":["Explore builds","Model results","Predict from CSV","Session history"],
+        "views_checked":["Explore builds","Model results","Predict from CSV","CI outcome history","Session history"],
         "real_high_risk_explanation_checked":True,
         "explanation_additivity_error":explanation["additivity_error"],
         "session_history_recorded":True,"model_sha256":before,

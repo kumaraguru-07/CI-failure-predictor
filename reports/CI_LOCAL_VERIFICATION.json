@@ -1,0 +1,22 @@
+{
+  "status": "local_verification_passed",
+  "package_sha256": "3045161c051bd57d117151841da05b916296d595c8c6671e8a270c2e436c93e0",
+  "package_size_bytes": 4908477,
+  "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
+  "frozen_evaluation_unchanged": true,
+  "package_prediction_difference": 0.0,
+  "live_reference_snapshot": {
+    "repository": "shriyachoksi/build-failure-predictor",
+    "commit_sha": "c782b25b65d8937c79c533531d66261d14335272",
+    "collected_at": "2026-11-15T08:53:23.939186+00:00",
+    "history_rows": 0,
+    "risk_level": "MEDIUM",
+    "failure_probability": 0.12788560113647382
+  },
+  "local_ledger_record_verified": true,
+  "snapshot_outcome": null,
+  "actual_outcomes_in_local_ledger": 1,
+  "mandatory_tests_required": true,
+  "verifier_executes_hosted_workflows": false,
+  "scope": "Offline replay only; hosted evidence remains in STEP_7_VERIFICATION.json"
+}

@@ -25,6 +25,9 @@ Streamlit 1.63.0 is installed on this PC. Newer dashboard APIs require >=1.57.
   get batch probabilities, and explain one selected row. UTF-8 CSV only.
 - Model results: saved validation comparison, final test metrics, confusion counts,
   risk cutoffs and known limitations. This view does not reopen test targets.
+- CI outcome history: read-only persistent history imported from completed GitHub
+  Actions artifacts. Known outcomes are shown by default; pending/nonbinary
+  records can be included. Downloads do not modify the ledger.
 - Session history: latest 100 builds you explicitly analyzed, with known historical
   outcomes where available. Download CSV before closing; this is session memory,
   not permanent prediction tracking or a live outcome collector.
@@ -70,7 +73,7 @@ with no custom CSS, external fonts or extra frontend framework.
 ## Verification
 
 Run `.\.venv\Scripts\python.exe -m pytest -q`.
-All 32 tests pass. Run `.\.venv\Scripts\python.exe -m src.verify_dashboard`
+All 53 tests pass. Run `.\.venv\Scripts\python.exe -m src.verify_dashboard`
 to repeat the real-model check; results are saved in reports/STEP_6_VERIFICATION.json.
 Headless AppTest checks navigation, repository filtering, explanations, stale-result
 hiding, history, clearing, saved-model results and missing-artifact recovery.
@@ -79,13 +82,17 @@ Pure tests check the upload parser, data integrity, history bounds and downloads
 AppTest cannot simulate selecting a file in the native browser upload dialog.
 The CSV parser/service are tested directly. AppTest covers the no-file view and
 valid/invalid uploaded-CSV branches using an in-memory replacement for the native
-file selector. All four views also pass checks with the real 20,409-row validation
-cohort and frozen model. Browser layout, native file selection and server HTTP
-startup have not been separately inspected; no visual/browser QA is claimed.
+file selector. All five views pass headless checks with the real 20,409-row
+validation cohort and frozen model. Final browser checks additionally covered
+filtering, signed explanations, a readable-report download, native CSV upload,
+the missing-history note, frozen metrics, persistent CI outcomes and session
+history. See reports/BROWSER_QA.json. Restart the server after changing shared
+Python modules; a browser refresh alone may retain imported modules.
 
 ## Remaining scope
 
-Live GitHub commit extraction, GitHub Actions scheduling and persistent
-predicted-vs-actual outcome collection belong to Step 7. The current app uses
-historical validation examples and feature CSVs. Model-score limits from the
-training report still apply; this is a research dashboard.
+GitHub commit collection and hosted outcome recording are implemented. The
+dashboard itself does not fetch or schedule live runs; its prediction inputs are
+historical validation rows and feature CSVs. Import completed outcome artifacts
+to update persistent CI history. Model-score limits still apply; this is a
+research dashboard.

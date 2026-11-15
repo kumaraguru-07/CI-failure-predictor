@@ -102,3 +102,12 @@ def add_history(history,record,source,actual_outcome="Unknown"):
         "risk_level":record["risk_level"],"actual_outcome":actual_outcome,
         "required_checks":"Run all mandatory checks"}
     return (list(history)+[entry])[-100:]
+
+def ci_outcome_data(root):
+    """Read imported CI history without creating or mutating a database."""
+    import sqlite3
+    path=Path(root)/"data/ci/predictions.sqlite3"
+    if not path.exists():
+        return pd.DataFrame()
+    with sqlite3.connect(path.resolve().as_uri()+"?mode=ro",uri=True) as con:
+        return pd.read_sql_query("SELECT repository, commit_sha, run_id, as_of, probability, risk, result, actual_failed FROM predictions ORDER BY as_of DESC",con)

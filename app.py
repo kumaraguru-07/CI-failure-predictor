@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 from src.dashboard_data import (PROJECT_ROOT,fingerprint,DashboardService,validation_data,
-    parse_feature_csv,csv_download,add_history)
+    parse_feature_csv,csv_download,add_history,ci_outcome_data)
 from src.explain import report_markdown
 
 st.set_page_config(page_title="Failure-aware CI",page_icon=":material/monitoring:",layout="wide")
@@ -17,9 +17,9 @@ st.title("Failure-aware CI")
 st.caption("Explore build risk, understand the model signals, and plan your CI checks.")
 with st.sidebar:
     st.subheader("Workspace")
-    view = st.selectbox("View",["Explore builds","Predict from CSV","Model results","Session history"],key="view")
+    view = st.selectbox("View",["Explore builds","Predict from CSV","Model results","CI outcome history","Session history"],key="view")
     st.info("Local research dashboard · historical data")
-    st.caption("Live GitHub extraction is the next project stage.")
+    st.caption("GitHub Actions integration is active in the project repository.")
     st.caption("All mandatory CI checks remain required.")
 
 @st.cache_resource(max_entries=2,show_spinner="Loading the verified prediction model…")
@@ -182,6 +182,31 @@ elif view=="Model results":
             st.write("• "+item)
         st.caption("File-level and configuration-change features are unavailable in the training source.")
     st.download_button("Download model evaluation",json.dumps(report,indent=2),file_name="model_evaluation.json",mime="application/json")
+
+elif view=="CI outcome history":
+    st.subheader("Recorded CI outcomes")
+    st.caption("Persistent history imported from GitHub Actions artifacts. This view does not fetch new runs automatically.")
+    try:
+        history=ci_outcome_data(ROOT)
+        if history.empty:
+            st.info("No CI history has been imported yet. See docs/GITHUB_ACTIONS.md for the import command.")
+        else:
+            include_pending=st.checkbox("Include pending or nonbinary outcomes",value=False,key="include_pending_ci")
+            known=history[history.result.isin(["success","failure"])]
+            with st.container(horizontal=True):
+                st.metric("Recorded CI outcomes",len(known),border=True)
+                st.metric("Actual CI failures",int(known.actual_failed.eq(1).sum()),border=True)
+            shown=history if include_pending else known
+            shown=shown.copy()
+            shown["Actual outcome"]=shown.result.map({"success":"Passed","failure":"Failed","cancelled":"Cancelled","skipped":"Skipped"}).fillna("Pending")
+            table=shown[["repository","run_id","as_of","probability","risk","Actual outcome"]].rename(columns={
+                "repository":"Repository","run_id":"Workflow run","as_of":"Prediction time (UTC)",
+                "probability":"Failure probability","risk":"Risk"})
+            st.dataframe(table,hide_index=True,column_config={"Failure probability":st.column_config.NumberColumn(format="percent")})
+            st.caption("A few recorded runs verify integration, not model accuracy. Download and import new outcome artifacts to refresh this history.")
+            st.download_button("Download recorded CI history",csv_download(table),file_name="ci_outcome_history.csv",mime="text/csv")
+    except Exception:
+        st.error("The local CI history could not be read. Restore or reimport the outcome ledger; no records were changed.")
 
 elif view=="Session history":
     st.subheader("Your prediction session")

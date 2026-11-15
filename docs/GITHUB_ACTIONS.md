@@ -24,7 +24,7 @@ Configure branch protection to require **Required tests**, not the advisory job.
 Use your project repository, not the reference author's repository.
 
 1. Connect/publish this project to your own GitHub repository, preserving any
-   existing repository work. The local chat has not pushed code or created a repo.
+   existing repository work. This is already configured for the project repository.
 2. Create a GitHub release and upload:
    artifacts/ci-model-v1-attributed.zip
 3. Add repository Actions variables (Settings > Secrets and variables > Actions):
@@ -102,8 +102,8 @@ database. Download their exports and merge locally for longer-term history:
 
 Imports are idempotent. Reimporting a pending record never erases an observed
 outcome. A cancelled/skipped result is not counted as a pass or failure.
-The dashboard's session history is separate; this stage provides the persistent
-ledger and importer, not a new dashboard view.
+The dashboard's session history is separate. The CI outcome history view reads
+the persistent imported ledger; it does not automatically poll or download runs.
 
 ## Feature availability and interpretation
 

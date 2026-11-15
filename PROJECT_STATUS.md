@@ -4,7 +4,8 @@
 
 Scope and architecture frozen. Local Git repository initialized. Python 3.13
 is available. A local .venv reuses installed base packages and adds SHAP locally;
-it is not a fully isolated dependency lock. No remote repository is configured.
+it is not a fully isolated dependency lock. main tracks the configured GitHub
+origin; the earlier local-development history is preserved.
 
 ## Phase 2: dataset and preprocessing
 
@@ -88,8 +89,9 @@ All 32 tests pass, including UI navigation, historical/CSV explanation flows,
 stale-result hiding, history clearing, invalid uploads and missing-file recovery.
 AppTest also exercised all four views with 20,409 real validation builds and
 the frozen model. Evidence: reports/STEP_6_VERIFICATION.json. The model and
-frozen evaluation checksums are unchanged. Native browser dialog/layout behavior
-has not been visually inspected; see docs/DASHBOARD.md for verification limits.
+frozen evaluation checksums are unchanged. Step 8 subsequently verified native
+CSV upload, report download, explanations and all five views in a real local
+browser. See reports/BROWSER_QA.json for the tested scope.
 
 ## Phase 7: CI integration — complete and hosted
 
@@ -115,11 +117,25 @@ SQLite ledger. Earlier local development history is preserved on local-developme
 main tracks origin/main. This single successful run is integration evidence,
 not new model-accuracy evidence.
 
-## Remaining final work
+## Phase 8: final verification and handover — complete locally
+
+All 53 tests pass. Final integrity checks preserve the raw/model/partition hashes
+and frozen evaluation, verify split-boundary label availability, and confirm the
+observed hosted outcome in persistent history. Browser QA covers every view,
+native upload, downloaded explanation and missing-history handling. A persistent
+CI outcome view completes the dashboard integration. Offline CI verification now
+writes a separate report and cannot overwrite hosted evidence. CI actions have
+been updated to current Node 24 releases for the final hosted check.
+
+The project report, demo guide, viva questions and synthetic example CSV are in
+docs/. Direct tested dependency versions are in requirements-tested.txt.
+See reports/FINAL_ACCEPTANCE.json and reports/STEP_8_COMPLETION.md.
+
+## Research limitations and optional future work
 
 - The Step 2 audit is complete. Confirm platform provenance before claiming
   modern-only results; missing execution times exclude many legacy rows.
-- Complete integration tests, user documentation and the final report. The test
-  evaluation is frozen; future model changes require a new held-out period.
+- The MVP implementation and report are complete. Further predictive improvement
+  requires a new untouched evaluation period; the existing test result stays frozen.
 
 Performance claims apply only to the audited eligible workflow-run cohort.

@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "scope": "Local integrity and existing hosted evidence; no new test evaluation",
+  "raw_rows": 303079,
+  "eligible_rows": 146110,
+  "partitions": {
+    "train": 102664,
+    "validation": 20409,
+    "test": 22075
+  },
+  "boundary_labels_available": true,
+  "build_identities_disjoint": true,
+  "raw_model_partition_checksums_match": true,
+  "frozen_evaluation_unchanged": true,
+  "hosted_workflow_url": "https://github.com/kumaraguru-07/CI-failure-predictor/actions/runs/43699059875",
+  "local_observed_ci_outcomes": 1,
+  "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
+  "package_sha256": "3045161c051bd57d117151841da05b916296d595c8c6671e8a270c2e436c93e0",
+  "browser_qa": "passed",
+  "tested_direct_dependencies": {
+    "numpy": "2.3.2",
+    "pandas": "2.3.2",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.1",
+    "xgboost": "3.4.1",
+    "joblib": "1.5.2",
+    "pyarrow": "25.0.1",
+    "shap": "0.54.1",
+    "streamlit": "1.63.0",
+    "pytest": "8.4.2",
+    "PyYAML": "6.0.3"
+  }
+}

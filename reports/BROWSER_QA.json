@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "date": "2026-11-15",
+  "environment": "Local Streamlit server, in-app browser, 127.0.0.1:8502",
+  "views_checked": ["Explore builds", "Predict from CSV", "Model results", "CI outcome history", "Session history"],
+  "historical_high_risk_filter": "passed",
+  "historical_prediction_and_signed_shap_chart": "passed",
+  "readable_report_download": "passed",
+  "native_csv_file_upload": "passed",
+  "synthetic_csv_rows": 3,
+  "missing_history_row_explanation_note": "displayed",
+  "frozen_metrics_display": "passed",
+  "persistent_ci_outcomes_displayed": 1,
+  "session_records_displayed": 2,
+  "model_retrained": false,
+  "test_predictions_recomputed": false,
+  "scope_limit": "One local desktop browser environment; mobile layouts and other browsers not separately tested"
+}

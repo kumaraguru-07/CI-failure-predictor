@@ -8,7 +8,7 @@ available before a build starts.
 On this PC, double-click `Start dashboard.cmd` in the project folder. It opens
 the local app at http://127.0.0.1:8501. Keep its window open while using the app;
 press Ctrl+C in that window to stop it. No Docker or cloud account is needed.
-See docs/DASHBOARD.md for the four views, input template and troubleshooting.
+See docs/DASHBOARD.md for the five views, input template and troubleshooting.
 
 ## Project scope (frozen)
 
@@ -102,4 +102,20 @@ Hosted integration is active in https://github.com/kumaraguru-07/CI-failure-pred
 The model is published as the ci-model-v1 research pre-release. The first hosted
 workflow passed prediction, all 50 required tests and actual-outcome recording.
 Evidence: reports/STEP_7_VERIFICATION.json and reports/STEP_7_COMPLETION.md.
+
+## Final handover
+
+The research MVP is complete. All 53 automated tests pass locally, and the final
+workflow runs the same suite on GitHub. Browser QA covers all five dashboard
+views, native CSV upload, explanations and report download. The model and its
+original test evaluation remain frozen; reported accuracy limitations still apply.
+
+- [Project report](docs/PROJECT_REPORT.md)
+- [Demo and handover guide](docs/DEMO_GUIDE.md)
+- [Viva Q&A](docs/VIVA_QA.md)
+- [Synthetic feature examples](docs/examples/README.md)
+- [Final acceptance](reports/STEP_8_COMPLETION.md)
+
+Run `.\.venv\Scripts\python.exe -m src.final_audit` for integrity checks.
+`src.verify_ci` writes CI_LOCAL_VERIFICATION.json and preserves hosted evidence.
 
