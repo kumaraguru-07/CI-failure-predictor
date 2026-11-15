@@ -98,7 +98,8 @@ session history with downloads. All 32 tests pass. Real-artifact verification:
 Step 7's local integration is ready: GitHub commit/history collection, advisory
 prediction before required tests, a portable model package and a persistent
 prediction/outcome ledger. All 50 tests pass. See docs/GITHUB_ACTIONS.md.
-GitHub is connected as kumaraguru-07. Hosted activation is pending the browser
-sign-in required for repository creation/release setup; no repository has been
-created or workflow executed remotely yet.
+Hosted integration is active in https://github.com/kumaraguru-07/CI-failure-predictor.
+The model is published as the ci-model-v1 research pre-release. The first hosted
+workflow passed prediction, all 50 required tests and actual-outcome recording.
+Evidence: reports/STEP_7_VERIFICATION.json and reports/STEP_7_COMPLETION.md.
 

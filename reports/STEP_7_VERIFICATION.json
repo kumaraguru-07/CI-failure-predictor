@@ -1,10 +1,10 @@
 {
-  "status": "local_verification_passed",
+  "status": "hosted_verification_passed",
   "package_sha256": "3045161c051bd57d117151841da05b916296d595c8c6671e8a270c2e436c93e0",
   "package_size_bytes": 4908477,
   "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
   "frozen_evaluation_unchanged": true,
-  "package_prediction_difference": 0.0,
+  "package_prediction_difference": 0,
   "live_reference_snapshot": {
     "repository": "shriyachoksi/build-failure-predictor",
     "commit_sha": "c782b25b65d8937c79c533531d66261d14335272",
@@ -14,8 +14,39 @@
     "failure_probability": 0.12788560113647382
   },
   "local_ledger_pending_record_verified": true,
-  "actual_ci_outcome_collected": false,
+  "actual_ci_outcome_collected": true,
   "mandatory_tests_required": true,
-  "github_hosted_workflow_executed": false,
-  "activation_blocker": "No GitHub remote configured; repository URL and release/variable setup required"
+  "github_hosted_workflow_executed": true,
+  "activation_blocker": null,
+  "hosted": {
+    "repository_url": "https://github.com/kumaraguru-07/CI-failure-predictor",
+    "run_id": 43699059875,
+    "url": "https://github.com/kumaraguru-07/CI-failure-predictor/actions/runs/43699059875",
+    "head_sha": "c0f669fbb7d8c641693afb35664263eb6be63eb9",
+    "conclusion": "success",
+    "jobs": [
+      "Advisory failure prediction",
+      "Required tests",
+      "Record required-test outcome"
+    ],
+    "tests_passed": 50,
+    "prediction_status": "predicted",
+    "outcome": {
+      "prediction_id": "a271a7fbdb2d2b5dd7419a25262021e3b298b0f1bd739d453085511186bc45fd",
+      "repository": "kumaraguru-07/CI-failure-predictor",
+      "commit_sha": "c0f669fbb7d8c641693afb35664263eb6be63eb9",
+      "run_id": "43699059875",
+      "run_attempt": 1,
+      "as_of": "2026-11-15T09:24:18.883657+00:00",
+      "probability": 0.1005195713890099,
+      "risk": "MEDIUM",
+      "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
+      "result": "success",
+      "actual_failed": 0,
+      "completed_at": "2026-11-15T09:25:05.506556+00:00"
+    },
+    "outcome_imported_locally": true,
+    "model_release_url": "https://github.com/kumaraguru-07/CI-failure-predictor/releases/tag/ci-model-v1",
+    "public_package_explicitly_approved": true
+  }
 }

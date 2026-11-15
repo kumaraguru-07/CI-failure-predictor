@@ -1,7 +1,11 @@
 # Step 7: GitHub commit collection and Actions integration
 
-Status: local implementation and live read-only collection verified.
-Hosted workflow activation is pending: this project has no configured GitHub remote.
+Status: hosted integration verified on 2026-11-15.
+Repository: https://github.com/kumaraguru-07/CI-failure-predictor.
+Model release: https://github.com/kumaraguru-07/CI-failure-predictor/releases/tag/ci-model-v1.
+First successful workflow: https://github.com/kumaraguru-07/CI-failure-predictor/actions/runs/43699059875.
+Prediction, all 50 required tests and outcome recording succeeded. The resulting
+prediction/outcome record has also been imported into the local SQLite history.
 
 ## What is implemented
 
@@ -134,16 +138,14 @@ API error redaction, checksums, archive members, bundle export/load, job graph,
 outcome recording and idempotent history import. Aggregate evidence is in
 reports/STEP_7_VERIFICATION.json. The frozen model and test evaluation are unchanged.
 
-No GitHub-hosted workflow has run for this project yet. Repository connection,
-release upload, Actions variables and the first hosted run remain required before
-claiming end-to-end GitHub deployment.
-
-The user has authorized creating a new project repository and publishing the
-required code/package. A private repository is the default. Account sign-in is
-confirmed through the GitHub integration as kumaraguru-07. Repository creation
-and release setup are not exposed by that connection, and the browser setup page
-requires a separate sign-in by the account owner. It has been left open for that
-handoff. No remote repository has been created yet.
+The user selected the public CI-failure-predictor repository and explicitly
+approved public release of the model package and its 100 numeric background rows.
+The raw dataset, author identifiers, credentials and local environment were not
+published. CI_MODEL_URL and CI_MODEL_SHA256 are configured. The first hosted run
+produced a MEDIUM score of 10.05% and the required tests passed. This confirms
+integration, not predictive accuracy on the repository. Observe more outcomes
+before making deployment performance claims. Branch-protection policy has not
+been changed; configure required checks separately if enforcing merge gates.
 
 Primary API references:
 - https://docs.github.com/en/rest/commits/commits

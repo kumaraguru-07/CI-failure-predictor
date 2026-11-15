@@ -91,7 +91,7 @@ the frozen model. Evidence: reports/STEP_6_VERIFICATION.json. The model and
 frozen evaluation checksums are unchanged. Native browser dialog/layout behavior
 has not been visually inspected; see docs/DASHBOARD.md for verification limits.
 
-## Phase 7: CI integration — local implementation ready, activation pending
+## Phase 7: CI integration — complete and hosted
 
 Implemented the GitHub read-only collector, portable model package (about 4.9 MB),
 advisory prediction job, unconditional required tests after prediction, and
@@ -101,22 +101,24 @@ authorization on storage redirects.
 
 All 50 tests pass. A real read-only reference-repository snapshot was collected
 in three API requests; the model package reproduces its probability exactly.
-That repository had zero prior Actions records, so actual CI outcomes are not
-claimed. The frozen model/evaluation are unchanged. See docs/GITHUB_ACTIONS.md
-and reports/STEP_7_VERIFICATION.json.
+That reference repository had zero prior Actions records. Subsequently, the
+project's own hosted workflow completed prediction, all 50 required tests and
+actual-outcome recording. The frozen model/evaluation are unchanged. See
+docs/GITHUB_ACTIONS.md and reports/STEP_7_VERIFICATION.json.
 
-The user authorized creating a new private project repository and publishing
-what is needed. The GitHub integration is connected as kumaraguru-07. The browser
-setup page requires a separate sign-in by the account owner and has been left
-open. No remote repository/release/variables have been created, and no
-GitHub-hosted workflow has run. Continue repository creation after browser sign-in.
+The user selected the existing public repository kumaraguru-07/CI-failure-predictor
+and explicitly approved publication of the model and its 100 derived numeric
+background rows. Code, the ci-model-v1 release and both Actions variables are
+published. Workflow run 43699059875 succeeded. Its MEDIUM prediction (10.05%)
+was joined to the successful required-test result and imported into the local
+SQLite ledger. Earlier local development history is preserved on local-development;
+main tracks origin/main. This single successful run is integration evidence,
+not new model-accuracy evidence.
 
-## Remaining activation and final work
+## Remaining final work
 
 - The Step 2 audit is complete. Confirm platform provenance before claiming
   modern-only results; missing execution times exclude many legacy rows.
-- Finish browser sign-in, create the authorized project repository, publish the model
-  release, set Actions variables and verify the first hosted workflow run.
 - Complete integration tests, user documentation and the final report. The test
   evaluation is frozen; future model changes require a new held-out period.
 
