@@ -1,0 +1,7 @@
+# Inference versions from the frozen Python 3.13 model environment.
+numpy==2.3.2
+pandas==2.3.2
+scikit-learn==1.7.2
+joblib==1.5.2
+pyarrow==25.0.1
+shap==0.54.1

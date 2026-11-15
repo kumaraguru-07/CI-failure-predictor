@@ -1,0 +1,192 @@
+{
+  "raw_rows": 303079,
+  "eligible_rows": 146110,
+  "sha256": "b6a89418e39e6144f4ac71496256474c7bc27651e099557fe074d7798da1e73e",
+  "checksum_verified": true,
+  "cleaning": {
+    "input_rows": 303079,
+    "excluded": {
+      "missing_build_identity": 0,
+      "unknown_or_nonbinary_outcome": 134492,
+      "missing_or_invalid_execution_times": 22477,
+      "completion_before_start": 0,
+      "conflicting_duplicate_identity": 0,
+      "duplicate_identity": 0
+    },
+    "raw_outcomes": {
+      "success": 137168,
+      "<missing>": 91047,
+      "skipped": 38041,
+      "passed": 17522,
+      "failure": 8671,
+      "cancelled": 5260,
+      "failed": 3702,
+      "errored": 1253,
+      "startup_failure": 271,
+      "canceled": 109,
+      "action_required": 35
+    },
+    "eligible_rows": 146110
+  },
+  "source": "https://data.mendeley.com/datasets/mggwn7rj9f/1",
+  "license": "CC BY 4.0",
+  "authors": "Joshua Faruna; Funmilayo Sanusi",
+  "label_mapping": {
+    "success": 0,
+    "passed": 0,
+    "failure": 1,
+    "failed": 1,
+    "errored": 1,
+    "error": 1,
+    "startup_failure": 1
+  },
+  "environment": {
+    "python": "3.13.0",
+    "pandas": "2.3.2"
+  },
+  "repositories": 32,
+  "raw_column_missing_fraction": {
+    "run_id": 0.0,
+    "repo": 0.0,
+    "repo_name": 0.9254781756571719,
+    "commit_sha": 0.0,
+    "conclusion": 0.30040682462328305,
+    "status": 0.0746109100267587,
+    "duration": 1.649734887603562e-05,
+    "created_at": 0.3003507336371045,
+    "run_started_at": 0.3003507336371045,
+    "updated_at": 0.37487255797993263,
+    "event": 0.37487255797993263,
+    "head_branch": 0.30035403310687975,
+    "run_number": 0.3003507336371045,
+    "author_name": 0.37487255797993263,
+    "author_email": 0.37487255797993263,
+    "committer_name": 0.37487255797993263,
+    "committer_email": 0.37487255797993263,
+    "authored_date": 0.37487255797993263,
+    "committed_date": 0.37487255797993263,
+    "message": 0.37487255797993263,
+    "msg_len": 0.0,
+    "is_merge": 0.37487255797993263,
+    "num_parents": 0.37487255797993263,
+    "additions": 0.0,
+    "deletions": 0.0,
+    "total_churn": 0.37487255797993263,
+    "files_modified": 0.0,
+    "timestamp_raw": 0.0,
+    "commit_date": 0.6996492663628955,
+    "author": 0.6251274420200674,
+    "workflow_id": 0.37487255797993263,
+    "node_id": 0.37487255797993263,
+    "head_sha": 0.37487255797993263,
+    "run_attempt": 0.37487255797993263,
+    "actor_login": 0.37487255797993263,
+    "triggering_actor_login": 0.37487255797993263,
+    "time_since_last_commit": 0.37487255797993263,
+    "timestamp": 0.6996492663628955
+  },
+  "commit_metrics_summary": {
+    "lines_added": {
+      "count": 146110.0,
+      "mean": 795.5751420162891,
+      "std": 15574.291432204416,
+      "min": 0.0,
+      "25%": 3.0,
+      "50%": 20.0,
+      "75%": 114.0,
+      "max": 1386702.0
+    },
+    "lines_deleted": {
+      "count": 146110.0,
+      "mean": 441.02017657928957,
+      "std": 6779.398519522361,
+      "min": 0.0,
+      "25%": 1.0,
+      "50%": 6.0,
+      "75%": 37.0,
+      "max": 346639.0
+    },
+    "files_changed_total": {
+      "count": 146110.0,
+      "mean": 13.343070289507905,
+      "std": 98.8382704792515,
+      "min": 0.0,
+      "25%": 1.0,
+      "50%": 2.0,
+      "75%": 6.0,
+      "max": 11017.0
+    }
+  },
+  "limitations": [
+    "Publisher describes mixed TravisTorrent/GitHub Actions data; no verified source discriminator",
+    "updated_at is conservatively used as outcome availability time, not exact completion",
+    "No file paths: file/configuration features remain missing",
+    "History replay uses outcomes only after completion, including earlier evaluation outcomes",
+    "No imputation, scaling, balancing or model selection has been fit on validation/test"
+  ],
+  "splits": {
+    "train": {
+      "rows": 102664,
+      "failures": 6777,
+      "failure_rate": 0.06601145484298293,
+      "start": "2025-03-13 08:43:06+00:00",
+      "end": "2026-03-29 09:15:29+00:00",
+      "latest_label_available": "2026-03-29 09:15:38+00:00"
+    },
+    "validation": {
+      "rows": 20409,
+      "failures": 1024,
+      "failure_rate": 0.0501739428683424,
+      "start": "2026-03-29 09:15:50+00:00",
+      "end": "2026-04-08 20:39:21+00:00",
+      "latest_label_available": "2026-04-08 20:41:53+00:00"
+    },
+    "test": {
+      "rows": 22075,
+      "failures": 1043,
+      "failure_rate": 0.0472480181200453,
+      "start": "2026-04-08 20:42:51+00:00",
+      "end": "2026-04-18 17:48:19+00:00",
+      "latest_label_available": "2026-04-18 17:48:31+00:00"
+    }
+  },
+  "boundary_purged_rows": 962,
+  "feature_missing_fraction": {
+    "files_changed_total": 0.0,
+    "lines_added": 0.0,
+    "lines_deleted": 0.0,
+    "total_churn": 0.0,
+    "day_of_week": 0.0,
+    "hour_of_day": 0.0,
+    "project_historical_failure_rate": 0.006898911778796797,
+    "recent_5_build_failure_rate": 0.006898911778796797,
+    "recent_10_build_failure_rate": 0.006898911778796797,
+    "consecutive_failures": 0.0,
+    "time_since_last_failure_hours": 0.02062829375128328,
+    "author_historical_failure_rate": 0.06434877831770584,
+    "author_recent_failure_rate": 0.06434877831770584,
+    "touched_files_failure_rate": 1.0,
+    "dependency_file_changed": 1.0,
+    "configuration_file_changed": 1.0,
+    "ci_workflow_changed": 1.0,
+    "docker_file_changed": 1.0,
+    "directories_changed": 1.0,
+    "history_build_count": 0.0,
+    "author_history_count": 0.0,
+    "file_history_available": 0.0
+  },
+  "training_all_missing_features": [
+    "touched_files_failure_rate",
+    "dependency_file_changed",
+    "configuration_file_changed",
+    "ci_workflow_changed",
+    "docker_file_changed",
+    "directories_changed"
+  ],
+  "cross_split_commit_overlap": {
+    "train_validation": 39,
+    "train_test": 4,
+    "validation_test": 33
+  },
+  "evaluation_unit": "workflow run attempt; repeated commit SHAs may occur, not unseen-commit evaluation"
+}

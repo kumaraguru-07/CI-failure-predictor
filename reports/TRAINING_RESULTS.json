@@ -1,0 +1,336 @@
+{
+  "selection_metric": "validation average precision (AP), not trapezoidal PR area",
+  "seed": 42,
+  "winner": "enhanced_random_forest",
+  "validation_comparison": {
+    "baseline_logistic_regression": {
+      "average_precision": 0.13876926609021947,
+      "roc_auc": 0.7124847357009286,
+      "brier_score": 0.04630789509903967,
+      "precision": 0.46153846153846156,
+      "recall": 0.017578125,
+      "f1": 0.03386641580432737,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19364,
+        21,
+        1006,
+        18
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424,
+      "fit_and_validation_seconds": 0.20501289999992878,
+      "features": [
+        "files_changed_total",
+        "lines_added",
+        "lines_deleted",
+        "total_churn",
+        "day_of_week",
+        "hour_of_day",
+        "project_historical_failure_rate"
+      ]
+    },
+    "baseline_random_forest": {
+      "average_precision": 0.16847904454186455,
+      "roc_auc": 0.6955641594257803,
+      "brier_score": 0.04503489927425868,
+      "precision": 0.8571428571428571,
+      "recall": 0.017578125,
+      "f1": 0.03444976076555024,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19382,
+        3,
+        1006,
+        18
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424,
+      "fit_and_validation_seconds": 12.772312600000078,
+      "features": [
+        "files_changed_total",
+        "lines_added",
+        "lines_deleted",
+        "total_churn",
+        "day_of_week",
+        "hour_of_day",
+        "project_historical_failure_rate"
+      ]
+    },
+    "baseline_xgboost": {
+      "average_precision": 0.1698050655290514,
+      "roc_auc": 0.7058795510784757,
+      "brier_score": 0.044984213146572374,
+      "precision": 0.6428571428571429,
+      "recall": 0.017578125,
+      "f1": 0.034220532319391636,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19375,
+        10,
+        1006,
+        18
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424,
+      "fit_and_validation_seconds": 3.5135830999988684,
+      "features": [
+        "files_changed_total",
+        "lines_added",
+        "lines_deleted",
+        "total_churn",
+        "day_of_week",
+        "hour_of_day",
+        "project_historical_failure_rate"
+      ]
+    },
+    "enhanced_logistic_regression": {
+      "average_precision": 0.16327541943084606,
+      "roc_auc": 0.7474218195850528,
+      "brier_score": 0.04579360581212409,
+      "precision": 0.35964912280701755,
+      "recall": 0.0400390625,
+      "f1": 0.07205623901581722,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19312,
+        73,
+        983,
+        41
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424,
+      "fit_and_validation_seconds": 0.827923800001372,
+      "features": [
+        "files_changed_total",
+        "lines_added",
+        "lines_deleted",
+        "total_churn",
+        "day_of_week",
+        "hour_of_day",
+        "project_historical_failure_rate",
+        "recent_5_build_failure_rate",
+        "recent_10_build_failure_rate",
+        "consecutive_failures",
+        "time_since_last_failure_hours",
+        "author_historical_failure_rate",
+        "author_recent_failure_rate",
+        "history_build_count",
+        "author_history_count"
+      ]
+    },
+    "enhanced_random_forest": {
+      "average_precision": 0.20589477102427092,
+      "roc_auc": 0.772899320108976,
+      "brier_score": 0.04403639543530525,
+      "precision": 0.7222222222222222,
+      "recall": 0.0126953125,
+      "f1": 0.02495201535508637,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19380,
+        5,
+        1011,
+        13
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424,
+      "fit_and_validation_seconds": 20.949357000001328,
+      "features": [
+        "files_changed_total",
+        "lines_added",
+        "lines_deleted",
+        "total_churn",
+        "day_of_week",
+        "hour_of_day",
+        "project_historical_failure_rate",
+        "recent_5_build_failure_rate",
+        "recent_10_build_failure_rate",
+        "consecutive_failures",
+        "time_since_last_failure_hours",
+        "author_historical_failure_rate",
+        "author_recent_failure_rate",
+        "history_build_count",
+        "author_history_count"
+      ]
+    },
+    "enhanced_xgboost": {
+      "average_precision": 0.19819927965376416,
+      "roc_auc": 0.7703003842774697,
+      "brier_score": 0.044038073644284394,
+      "precision": 0.6341463414634146,
+      "recall": 0.025390625,
+      "f1": 0.048826291079812206,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19370,
+        15,
+        998,
+        26
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424,
+      "fit_and_validation_seconds": 4.488568699998723,
+      "features": [
+        "files_changed_total",
+        "lines_added",
+        "lines_deleted",
+        "total_churn",
+        "day_of_week",
+        "hour_of_day",
+        "project_historical_failure_rate",
+        "recent_5_build_failure_rate",
+        "recent_10_build_failure_rate",
+        "consecutive_failures",
+        "time_since_last_failure_hours",
+        "author_historical_failure_rate",
+        "author_recent_failure_rate",
+        "history_build_count",
+        "author_history_count"
+      ]
+    }
+  },
+  "validation_benchmarks": {
+    "constant_train_prevalence": {
+      "average_precision": 0.0501739428683424,
+      "roc_auc": 0.5,
+      "brier_score": 0.0479073451109336,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19385,
+        0,
+        1024,
+        0
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424
+    },
+    "observed_project_history": {
+      "average_precision": 0.13708923643109977,
+      "roc_auc": 0.7016652695383029,
+      "brier_score": 0.04551162558455839,
+      "precision": 0.6521739130434783,
+      "recall": 0.0146484375,
+      "f1": 0.02865329512893983,
+      "threshold": 0.5,
+      "confusion_matrix_tn_fp_fn_tp": [
+        19377,
+        8,
+        1009,
+        15
+      ],
+      "rows": 20409,
+      "failure_prevalence": 0.0501739428683424
+    }
+  },
+  "thresholds": {
+    "low_upper": 0.025552616731219203,
+    "medium_upper": 0.1306823416597925,
+    "binary_threshold": 0.1306823416597925,
+    "policy": "high = maximum validation F1; low = highest threshold with >=90% validation recall, capped at high",
+    "equal_cutoff_means_empty_medium": false
+  },
+  "winner_validation_at_selected_threshold": {
+    "average_precision": 0.20589477102427092,
+    "roc_auc": 0.772899320108976,
+    "brier_score": 0.04403639543530525,
+    "precision": 0.18744007670182167,
+    "recall": 0.3818359375,
+    "f1": 0.2514469453376206,
+    "threshold": 0.1306823416597925,
+    "confusion_matrix_tn_fp_fn_tp": [
+      17690,
+      1695,
+      633,
+      391
+    ],
+    "rows": 20409,
+    "failure_prevalence": 0.0501739428683424
+  },
+  "feature_columns": [
+    "files_changed_total",
+    "lines_added",
+    "lines_deleted",
+    "total_churn",
+    "day_of_week",
+    "hour_of_day",
+    "project_historical_failure_rate",
+    "recent_5_build_failure_rate",
+    "recent_10_build_failure_rate",
+    "consecutive_failures",
+    "time_since_last_failure_hours",
+    "author_historical_failure_rate",
+    "author_recent_failure_rate",
+    "history_build_count",
+    "author_history_count"
+  ],
+  "dropped_from_enhanced": [
+    "ci_workflow_changed",
+    "configuration_file_changed",
+    "dependency_file_changed",
+    "directories_changed",
+    "docker_file_changed",
+    "file_history_available",
+    "touched_files_failure_rate"
+  ],
+  "environment": {
+    "python": "3.13.0",
+    "scikit-learn": "1.7.2",
+    "xgboost": "3.4.1",
+    "pandas": "2.3.2",
+    "numpy": "2.3.2",
+    "joblib": "1.5.2"
+  },
+  "data_sha256": {
+    "train": "6b7c0ad8459343bafd1a526fd937971d4540a74093ab12517069fe9b5dd02bc7",
+    "validation": "73d4a7cacf071cdfe214f8b775209bd8716fa8f51c817a8e25c54498ab6f9e39",
+    "test": "da122ce1266c94d98d98e2f0e137dc6e5722bb46d4333c1714c45e21f61deb0d"
+  },
+  "limitations": [
+    "Uncalibrated probability estimates; Brier score reported",
+    "Model fit on train only; no refit on validation",
+    "Workflow-run evaluation, repeated commit SHAs may cross splits",
+    "Online history replay includes prior observed evaluation outcomes",
+    "No file paths in source, so no file-specific contribution claims",
+    "Single chronological split; no cross-repository generalisation claim"
+  ],
+  "test": {
+    "average_precision": 0.1465846787445814,
+    "roc_auc": 0.7630851148795043,
+    "brier_score": 0.0435955193943863,
+    "precision": 0.15023923444976076,
+    "recall": 0.45158197507190795,
+    "f1": 0.22546673049305888,
+    "threshold": 0.1306823416597925,
+    "confusion_matrix_tn_fp_fn_tp": [
+      18368,
+      2664,
+      572,
+      471
+    ],
+    "rows": 22075,
+    "failure_prevalence": 0.0472480181200453
+  },
+  "test_constant_train_prevalence": {
+    "average_precision": 0.0472480181200453,
+    "roc_auc": 0.5,
+    "brier_score": 0.04536770946142886,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "threshold": 0.1306823416597925,
+    "confusion_matrix_tn_fp_fn_tp": [
+      21032,
+      0,
+      1043,
+      0
+    ],
+    "rows": 22075,
+    "failure_prevalence": 0.0472480181200453
+  },
+  "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
+  "test_evaluation_count": 1
+}

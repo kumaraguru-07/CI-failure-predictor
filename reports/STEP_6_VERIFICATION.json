@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "validation_builds": "20,409",
+  "views_checked": [
+    "Explore builds",
+    "Model results",
+    "Predict from CSV",
+    "Session history"
+  ],
+  "real_high_risk_explanation_checked": true,
+  "explanation_additivity_error": 2.7755575615628914e-17,
+  "session_history_recorded": true,
+  "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
+  "frozen_model_unchanged": true,
+  "frozen_evaluation_unchanged": true,
+  "verification_method": "Streamlit AppTest with real local artifacts"
+}

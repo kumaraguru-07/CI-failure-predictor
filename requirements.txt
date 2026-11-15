@@ -1,0 +1,16 @@
+# Core MVP dependencies. Pin only after the target dataset has been inspected.
+pandas>=2.2,<3
+numpy>=1.26,<3
+scikit-learn>=1.5,<2
+pyarrow>=19,<26
+joblib>=1.4,<2
+PyYAML>=6,<7
+
+# Training/dashboard phase
+xgboost>=2.1,<4
+shap>=0.46,<1
+streamlit>=1.57,<2
+
+# Development
+pytest>=8,<9
+

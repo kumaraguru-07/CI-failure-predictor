@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "validation_rows_checked": 40,
+  "risk_band_sampling": {
+    "LOW": 10,
+    "MEDIUM": 10,
+    "HIGH": 10
+  },
+  "missing_input_rows_added": 10,
+  "all_missing_boundary_case_checked": true,
+  "permutation_fallback_rows": 0,
+  "max_additivity_error": 2.248240038582594e-08,
+  "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
+  "model_unchanged": true,
+  "training_background_verified": true,
+  "mandatory_checks_preserved": true,
+  "unknown_file_changes_not_invented": true,
+  "final_test_data_accessed": false,
+  "validation_data_sha256": "73d4a7cacf071cdfe214f8b775209bd8716fa8f51c817a8e25c54498ab6f9e39"
+}

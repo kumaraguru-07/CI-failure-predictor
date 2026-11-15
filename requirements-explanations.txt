@@ -1,0 +1,4 @@
+# Tested explanation additions for the local Python 3.13 environment.
+# The frozen model's core dependency versions remain in reports/TRAINING_RESULTS.json.
+shap==0.54.1
+slicer==0.0.8

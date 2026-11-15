@@ -1,0 +1,2 @@
+# Tested dashboard runtime (Python 3.13 on this PC).
+streamlit==1.63.0

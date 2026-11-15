@@ -1,0 +1,1014 @@
+{
+  "method": "Failure-class probability SHAP; interventional Tree SHAP with explicit permutation fallback if additivity fails",
+  "background_source": "data\\processed\\train.parquet",
+  "background_rows": 100,
+  "background_training_row_indices": [
+    46942,
+    1860,
+    82221,
+    6234,
+    96972,
+    25815,
+    94738,
+    30327,
+    90145,
+    50803,
+    58426,
+    66701,
+    883,
+    14729,
+    4050,
+    100589,
+    97368,
+    46519,
+    856,
+    23342,
+    11597,
+    24246,
+    50316,
+    16123,
+    74969,
+    11946,
+    26109,
+    93170,
+    49281,
+    11838,
+    101711,
+    47962,
+    46074,
+    65406,
+    91374,
+    84198,
+    49568,
+    66823,
+    77200,
+    28126,
+    84727,
+    60402,
+    7884,
+    48089,
+    83452,
+    73227,
+    34645,
+    26664,
+    15902,
+    31907,
+    82836,
+    28319,
+    96888,
+    7201,
+    41944,
+    98550,
+    17520,
+    10843,
+    26860,
+    53169,
+    28256,
+    41102,
+    89882,
+    100636,
+    1091,
+    32541,
+    100013,
+    83680,
+    88018,
+    81175,
+    7095,
+    43106,
+    82851,
+    7842,
+    86501,
+    89759,
+    45199,
+    39141,
+    97502,
+    18829,
+    41610,
+    79894,
+    44319,
+    47363,
+    23239,
+    63331,
+    20899,
+    10049,
+    102110,
+    81584,
+    72863,
+    80697,
+    46440,
+    14001,
+    38156,
+    38273,
+    86630,
+    55784,
+    86176,
+    55926
+  ],
+  "shap_version": "0.54.1",
+  "model_sha256": "b8a6c8fc27d67154a8b9d7e58990061ef9c62e8be081fd934d25a68b3c319330",
+  "background_sha256": "6b7c0ad8459343bafd1a526fd937971d4540a74093ab12517069fe9b5dd02bc7",
+  "risk_thresholds": {
+    "low_upper": 0.025552616731219203,
+    "medium_upper": 0.1306823416597925,
+    "binary_threshold": 0.1306823416597925,
+    "policy": "high = maximum validation F1; low = highest threshold with >=90% validation recall, capped at high",
+    "equal_cutoff_means_empty_medium": false
+  },
+  "rows": [
+    {
+      "row_position": 0,
+      "model": "enhanced_random_forest",
+      "attribution_method": "interventional_tree_shap",
+      "failure_probability": 0.018861337883441142,
+      "risk_level": "LOW",
+      "base_probability": 0.06771283953041539,
+      "reconstructed_probability": 0.018861335997656187,
+      "additivity_error": 1.885784955274472e-09,
+      "missing_input_features": [],
+      "input_quality_note": "All required input features were supplied.",
+      "top_increasing_signals": [
+        {
+          "feature": "total_churn",
+          "kind": "feature",
+          "input_value": 6.0,
+          "value_used": 6.0,
+          "input_was_missing": false,
+          "contribution": 0.0007855980086553416,
+          "contribution_percentage_points": 0.07855980086553416,
+          "direction": "increases"
+        }
+      ],
+      "top_decreasing_signals": [
+        {
+          "feature": "author_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.012116394098044197,
+          "contribution_percentage_points": -1.2116394098044196,
+          "direction": "decreases"
+        },
+        {
+          "feature": "recent_10_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.007937918936929123,
+          "contribution_percentage_points": -0.7937918936929124,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_recent_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.006045708525263081,
+          "contribution_percentage_points": -0.604570852526308,
+          "direction": "decreases"
+        }
+      ],
+      "all_contributions": [
+        {
+          "feature": "files_changed_total",
+          "kind": "feature",
+          "input_value": 3.0,
+          "value_used": 3.0,
+          "input_was_missing": false,
+          "contribution": -3.490952422616545e-05,
+          "contribution_percentage_points": -0.003490952422616545,
+          "direction": "decreases"
+        },
+        {
+          "feature": "lines_added",
+          "kind": "feature",
+          "input_value": 3.0,
+          "value_used": 3.0,
+          "input_was_missing": false,
+          "contribution": -0.00035373007298115765,
+          "contribution_percentage_points": -0.035373007298115766,
+          "direction": "decreases"
+        },
+        {
+          "feature": "lines_deleted",
+          "kind": "feature",
+          "input_value": 3.0,
+          "value_used": 3.0,
+          "input_was_missing": false,
+          "contribution": -0.0009748358640587185,
+          "contribution_percentage_points": -0.09748358640587185,
+          "direction": "decreases"
+        },
+        {
+          "feature": "total_churn",
+          "kind": "feature",
+          "input_value": 6.0,
+          "value_used": 6.0,
+          "input_was_missing": false,
+          "contribution": 0.0007855980086553416,
+          "contribution_percentage_points": 0.07855980086553416,
+          "direction": "increases"
+        },
+        {
+          "feature": "day_of_week",
+          "kind": "feature",
+          "input_value": 6.0,
+          "value_used": 6.0,
+          "input_was_missing": false,
+          "contribution": -0.0007274252022434346,
+          "contribution_percentage_points": -0.07274252022434347,
+          "direction": "decreases"
+        },
+        {
+          "feature": "hour_of_day",
+          "kind": "feature",
+          "input_value": 9.0,
+          "value_used": 9.0,
+          "input_was_missing": false,
+          "contribution": -0.0012007878765909652,
+          "contribution_percentage_points": -0.12007878765909652,
+          "direction": "decreases"
+        },
+        {
+          "feature": "project_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.05851063829787234,
+          "value_used": 0.058510638773441315,
+          "input_was_missing": false,
+          "contribution": -0.005999370677216263,
+          "contribution_percentage_points": -0.5999370677216262,
+          "direction": "decreases"
+        },
+        {
+          "feature": "recent_5_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.004337490728389923,
+          "contribution_percentage_points": -0.43374907283899233,
+          "direction": "decreases"
+        },
+        {
+          "feature": "recent_10_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.007937918936929123,
+          "contribution_percentage_points": -0.7937918936929124,
+          "direction": "decreases"
+        },
+        {
+          "feature": "consecutive_failures",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.0018108088239742414,
+          "contribution_percentage_points": -0.18108088239742415,
+          "direction": "decreases"
+        },
+        {
+          "feature": "time_since_last_failure_hours",
+          "kind": "feature",
+          "input_value": 16.1275,
+          "value_used": 16.127500534057617,
+          "input_was_missing": false,
+          "contribution": -0.0023119816910224245,
+          "contribution_percentage_points": -0.23119816910224245,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.012116394098044197,
+          "contribution_percentage_points": -1.2116394098044196,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_recent_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.006045708525263081,
+          "contribution_percentage_points": -0.604570852526308,
+          "direction": "decreases"
+        },
+        {
+          "feature": "history_build_count",
+          "kind": "feature",
+          "input_value": 2444.0,
+          "value_used": 2444.0,
+          "input_was_missing": false,
+          "contribution": -0.0046566531744748115,
+          "contribution_percentage_points": -0.46566531744748113,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_history_count",
+          "kind": "feature",
+          "input_value": 9.0,
+          "value_used": 9.0,
+          "input_was_missing": false,
+          "contribution": -0.0003345125245118652,
+          "contribution_percentage_points": -0.03345125245118652,
+          "direction": "decreases"
+        },
+        {
+          "feature": "missingindicator_project_historical_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.05851063829787234,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_recent_5_build_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_recent_10_build_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_time_since_last_failure_hours",
+          "kind": "missing_indicator",
+          "input_value": 16.1275,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -5.325259485431389e-06,
+          "contribution_percentage_points": -0.0005325259485431388,
+          "direction": "decreases"
+        },
+        {
+          "feature": "missingindicator_author_historical_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.00037201184037712667,
+          "contribution_percentage_points": -0.037201184037712665,
+          "direction": "decreases"
+        },
+        {
+          "feature": "missingindicator_author_recent_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.0004172367216256134,
+          "contribution_percentage_points": -0.04172367216256134,
+          "direction": "decreases"
+        }
+      ],
+      "ci_recommendation": {
+        "risk_level": "LOW",
+        "priority": [
+          "Use the standard CI order."
+        ],
+        "change_evidence": {
+          "dependency_file_changed": "unknown",
+          "configuration_file_changed": "unknown",
+          "ci_workflow_changed": "unknown",
+          "docker_file_changed": "unknown"
+        },
+        "mandatory_checks_required": true,
+        "skip_tests": false,
+        "merge_permission": "Prediction does not authorize merging; required checks must pass."
+      },
+      "interpretation": "Contributions describe this model score relative to the training background; they are not proven failure causes."
+    },
+    {
+      "row_position": 1,
+      "model": "enhanced_random_forest",
+      "attribution_method": "interventional_tree_shap",
+      "failure_probability": 0.14951399637362092,
+      "risk_level": "HIGH",
+      "base_probability": 0.06771283953041539,
+      "reconstructed_probability": 0.14951399778251903,
+      "additivity_error": 1.4088981092896802e-09,
+      "missing_input_features": [],
+      "input_quality_note": "All required input features were supplied.",
+      "top_increasing_signals": [
+        {
+          "feature": "history_build_count",
+          "kind": "feature",
+          "input_value": 13179.0,
+          "value_used": 13179.0,
+          "input_was_missing": false,
+          "contribution": 0.07247450685246988,
+          "contribution_percentage_points": 7.247450685246988,
+          "direction": "increases"
+        },
+        {
+          "feature": "recent_5_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.2,
+          "value_used": 0.20000000298023224,
+          "input_was_missing": false,
+          "contribution": 0.015010328446075505,
+          "contribution_percentage_points": 1.5010328446075505,
+          "direction": "increases"
+        },
+        {
+          "feature": "author_recent_failure_rate",
+          "kind": "feature",
+          "input_value": 0.1,
+          "value_used": 0.10000000149011612,
+          "input_was_missing": false,
+          "contribution": 0.014641064748929154,
+          "contribution_percentage_points": 1.4641064748929153,
+          "direction": "increases"
+        }
+      ],
+      "top_decreasing_signals": [
+        {
+          "feature": "project_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.03763563244555733,
+          "value_used": 0.03763563185930252,
+          "input_was_missing": false,
+          "contribution": -0.01738872007899218,
+          "contribution_percentage_points": -1.7388720078992181,
+          "direction": "decreases"
+        },
+        {
+          "feature": "hour_of_day",
+          "kind": "feature",
+          "input_value": 9.0,
+          "value_used": 9.0,
+          "input_was_missing": false,
+          "contribution": -0.0062186783296077405,
+          "contribution_percentage_points": -0.6218678329607741,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.031591737545565005,
+          "value_used": 0.031591735780239105,
+          "input_was_missing": false,
+          "contribution": -0.004255234315117207,
+          "contribution_percentage_points": -0.4255234315117207,
+          "direction": "decreases"
+        }
+      ],
+      "all_contributions": [
+        {
+          "feature": "files_changed_total",
+          "kind": "feature",
+          "input_value": 10.0,
+          "value_used": 10.0,
+          "input_was_missing": false,
+          "contribution": 0.0007955375398606179,
+          "contribution_percentage_points": 0.07955375398606179,
+          "direction": "increases"
+        },
+        {
+          "feature": "lines_added",
+          "kind": "feature",
+          "input_value": 262.0,
+          "value_used": 262.0,
+          "input_was_missing": false,
+          "contribution": 0.002752727378505355,
+          "contribution_percentage_points": 0.2752727378505355,
+          "direction": "increases"
+        },
+        {
+          "feature": "lines_deleted",
+          "kind": "feature",
+          "input_value": 13.0,
+          "value_used": 13.0,
+          "input_was_missing": false,
+          "contribution": -0.0006801978094657102,
+          "contribution_percentage_points": -0.06801978094657102,
+          "direction": "decreases"
+        },
+        {
+          "feature": "total_churn",
+          "kind": "feature",
+          "input_value": 275.0,
+          "value_used": 275.0,
+          "input_was_missing": false,
+          "contribution": -5.588611735234395e-05,
+          "contribution_percentage_points": -0.0055886117352343945,
+          "direction": "decreases"
+        },
+        {
+          "feature": "day_of_week",
+          "kind": "feature",
+          "input_value": 6.0,
+          "value_used": 6.0,
+          "input_was_missing": false,
+          "contribution": -0.0020922472452882344,
+          "contribution_percentage_points": -0.20922472452882343,
+          "direction": "decreases"
+        },
+        {
+          "feature": "hour_of_day",
+          "kind": "feature",
+          "input_value": 9.0,
+          "value_used": 9.0,
+          "input_was_missing": false,
+          "contribution": -0.0062186783296077405,
+          "contribution_percentage_points": -0.6218678329607741,
+          "direction": "decreases"
+        },
+        {
+          "feature": "project_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.03763563244555733,
+          "value_used": 0.03763563185930252,
+          "input_was_missing": false,
+          "contribution": -0.01738872007899218,
+          "contribution_percentage_points": -1.7388720078992181,
+          "direction": "decreases"
+        },
+        {
+          "feature": "recent_5_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.2,
+          "value_used": 0.20000000298023224,
+          "input_was_missing": false,
+          "contribution": 0.015010328446075505,
+          "contribution_percentage_points": 1.5010328446075505,
+          "direction": "increases"
+        },
+        {
+          "feature": "recent_10_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.1,
+          "value_used": 0.10000000149011612,
+          "input_was_missing": false,
+          "contribution": 0.0049608861187197565,
+          "contribution_percentage_points": 0.49608861187197567,
+          "direction": "increases"
+        },
+        {
+          "feature": "consecutive_failures",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.002138905196648011,
+          "contribution_percentage_points": -0.21389051966480113,
+          "direction": "decreases"
+        },
+        {
+          "feature": "time_since_last_failure_hours",
+          "kind": "feature",
+          "input_value": 1.0038888888888888,
+          "value_used": 1.0038888454437256,
+          "input_was_missing": false,
+          "contribution": 0.001072547614014212,
+          "contribution_percentage_points": 0.10725476140142119,
+          "direction": "increases"
+        },
+        {
+          "feature": "author_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.031591737545565005,
+          "value_used": 0.031591735780239105,
+          "input_was_missing": false,
+          "contribution": -0.004255234315117207,
+          "contribution_percentage_points": -0.4255234315117207,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_recent_failure_rate",
+          "kind": "feature",
+          "input_value": 0.1,
+          "value_used": 0.10000000149011612,
+          "input_was_missing": false,
+          "contribution": 0.014641064748929154,
+          "contribution_percentage_points": 1.4641064748929153,
+          "direction": "increases"
+        },
+        {
+          "feature": "history_build_count",
+          "kind": "feature",
+          "input_value": 13179.0,
+          "value_used": 13179.0,
+          "input_was_missing": false,
+          "contribution": 0.07247450685246988,
+          "contribution_percentage_points": 7.247450685246988,
+          "direction": "increases"
+        },
+        {
+          "feature": "author_history_count",
+          "kind": "feature",
+          "input_value": 2469.0,
+          "value_used": 2469.0,
+          "input_was_missing": false,
+          "contribution": 0.0033390369845706404,
+          "contribution_percentage_points": 0.333903698457064,
+          "direction": "increases"
+        },
+        {
+          "feature": "missingindicator_project_historical_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.03763563244555733,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_recent_5_build_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.2,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_recent_10_build_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.1,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_time_since_last_failure_hours",
+          "kind": "missing_indicator",
+          "input_value": 1.0038888888888888,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -4.701322795881424e-06,
+          "contribution_percentage_points": -0.0004701322795881424,
+          "direction": "decreases"
+        },
+        {
+          "feature": "missingindicator_author_historical_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.031591737545565005,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -3.827727070245146e-05,
+          "contribution_percentage_points": -0.003827727070245146,
+          "direction": "decreases"
+        },
+        {
+          "feature": "missingindicator_author_recent_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.1,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.00037262974507171973,
+          "contribution_percentage_points": -0.037262974507171975,
+          "direction": "decreases"
+        }
+      ],
+      "ci_recommendation": {
+        "risk_level": "HIGH",
+        "priority": [
+          "Run fast failure-detecting checks early.",
+          "Prioritize the full required test suite and integration checks.",
+          "Review the prediction signals before merging."
+        ],
+        "change_evidence": {
+          "dependency_file_changed": "unknown",
+          "configuration_file_changed": "unknown",
+          "ci_workflow_changed": "unknown",
+          "docker_file_changed": "unknown"
+        },
+        "mandatory_checks_required": true,
+        "skip_tests": false,
+        "merge_permission": "Prediction does not authorize merging; required checks must pass."
+      },
+      "interpretation": "Contributions describe this model score relative to the training background; they are not proven failure causes."
+    },
+    {
+      "row_position": 2,
+      "model": "enhanced_random_forest",
+      "attribution_method": "interventional_tree_shap",
+      "failure_probability": 0.02757521582594004,
+      "risk_level": "MEDIUM",
+      "base_probability": 0.06771283953041539,
+      "reconstructed_probability": 0.027575214066515905,
+      "additivity_error": 1.7594241341623018e-09,
+      "missing_input_features": [],
+      "input_quality_note": "All required input features were supplied.",
+      "top_increasing_signals": [
+        {
+          "feature": "recent_10_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.1,
+          "value_used": 0.10000000149011612,
+          "input_was_missing": false,
+          "contribution": 0.0021112086072274396,
+          "contribution_percentage_points": 0.21112086072274397,
+          "direction": "increases"
+        },
+        {
+          "feature": "author_history_count",
+          "kind": "feature",
+          "input_value": 7.0,
+          "value_used": 7.0,
+          "input_was_missing": false,
+          "contribution": 0.0001891747990911341,
+          "contribution_percentage_points": 0.01891747990911341,
+          "direction": "increases"
+        },
+        {
+          "feature": "lines_deleted",
+          "kind": "feature",
+          "input_value": 1.0,
+          "value_used": 1.0,
+          "input_was_missing": false,
+          "contribution": 3.636029150463571e-05,
+          "contribution_percentage_points": 0.0036360291504635707,
+          "direction": "increases"
+        }
+      ],
+      "top_decreasing_signals": [
+        {
+          "feature": "author_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.012867034207550532,
+          "contribution_percentage_points": -1.2867034207550532,
+          "direction": "decreases"
+        },
+        {
+          "feature": "project_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.05637773079633545,
+          "value_used": 0.05637773126363754,
+          "input_was_missing": false,
+          "contribution": -0.007676944640090824,
+          "contribution_percentage_points": -0.7676944640090824,
+          "direction": "decreases"
+        },
+        {
+          "feature": "time_since_last_failure_hours",
+          "kind": "feature",
+          "input_value": 11.028055555555556,
+          "value_used": 11.028055191040039,
+          "input_was_missing": false,
+          "contribution": -0.005221480122340267,
+          "contribution_percentage_points": -0.5221480122340267,
+          "direction": "decreases"
+        }
+      ],
+      "all_contributions": [
+        {
+          "feature": "files_changed_total",
+          "kind": "feature",
+          "input_value": 5.0,
+          "value_used": 5.0,
+          "input_was_missing": false,
+          "contribution": -0.00014025700675432518,
+          "contribution_percentage_points": -0.014025700675432518,
+          "direction": "decreases"
+        },
+        {
+          "feature": "lines_added",
+          "kind": "feature",
+          "input_value": 97.0,
+          "value_used": 97.0,
+          "input_was_missing": false,
+          "contribution": -0.0008685747813670019,
+          "contribution_percentage_points": -0.0868574781367002,
+          "direction": "decreases"
+        },
+        {
+          "feature": "lines_deleted",
+          "kind": "feature",
+          "input_value": 1.0,
+          "value_used": 1.0,
+          "input_was_missing": false,
+          "contribution": 3.636029150463571e-05,
+          "contribution_percentage_points": 0.0036360291504635707,
+          "direction": "increases"
+        },
+        {
+          "feature": "total_churn",
+          "kind": "feature",
+          "input_value": 98.0,
+          "value_used": 98.0,
+          "input_was_missing": false,
+          "contribution": -0.0004467249754993219,
+          "contribution_percentage_points": -0.04467249754993219,
+          "direction": "decreases"
+        },
+        {
+          "feature": "day_of_week",
+          "kind": "feature",
+          "input_value": 6.0,
+          "value_used": 6.0,
+          "input_was_missing": false,
+          "contribution": -0.0005921728579889418,
+          "contribution_percentage_points": -0.05921728579889418,
+          "direction": "decreases"
+        },
+        {
+          "feature": "hour_of_day",
+          "kind": "feature",
+          "input_value": 9.0,
+          "value_used": 9.0,
+          "input_was_missing": false,
+          "contribution": -0.0009731282690594867,
+          "contribution_percentage_points": -0.09731282690594867,
+          "direction": "decreases"
+        },
+        {
+          "feature": "project_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.05637773079633545,
+          "value_used": 0.05637773126363754,
+          "input_was_missing": false,
+          "contribution": -0.007676944640090824,
+          "contribution_percentage_points": -0.7676944640090824,
+          "direction": "decreases"
+        },
+        {
+          "feature": "recent_5_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.004309003263630018,
+          "contribution_percentage_points": -0.43090032636300174,
+          "direction": "decreases"
+        },
+        {
+          "feature": "recent_10_build_failure_rate",
+          "kind": "feature",
+          "input_value": 0.1,
+          "value_used": 0.10000000149011612,
+          "input_was_missing": false,
+          "contribution": 0.0021112086072274396,
+          "contribution_percentage_points": 0.21112086072274397,
+          "direction": "increases"
+        },
+        {
+          "feature": "consecutive_failures",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.0018308313787417773,
+          "contribution_percentage_points": -0.18308313787417774,
+          "direction": "decreases"
+        },
+        {
+          "feature": "time_since_last_failure_hours",
+          "kind": "feature",
+          "input_value": 11.028055555555556,
+          "value_used": 11.028055191040039,
+          "input_was_missing": false,
+          "contribution": -0.005221480122340267,
+          "contribution_percentage_points": -0.5221480122340267,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_historical_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.012867034207550532,
+          "contribution_percentage_points": -1.2867034207550532,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_recent_failure_rate",
+          "kind": "feature",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.004455900030660303,
+          "contribution_percentage_points": -0.4455900030660303,
+          "direction": "decreases"
+        },
+        {
+          "feature": "history_build_count",
+          "kind": "feature",
+          "input_value": 1419.0,
+          "value_used": 1419.0,
+          "input_was_missing": false,
+          "contribution": -0.0019928385950015583,
+          "contribution_percentage_points": -0.1992838595001558,
+          "direction": "decreases"
+        },
+        {
+          "feature": "author_history_count",
+          "kind": "feature",
+          "input_value": 7.0,
+          "value_used": 7.0,
+          "input_was_missing": false,
+          "contribution": 0.0001891747990911341,
+          "contribution_percentage_points": 0.01891747990911341,
+          "direction": "increases"
+        },
+        {
+          "feature": "missingindicator_project_historical_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.05637773079633545,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_recent_5_build_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_recent_10_build_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.1,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 0.0,
+          "contribution_percentage_points": 0.0,
+          "direction": "neutral"
+        },
+        {
+          "feature": "missingindicator_time_since_last_failure_hours",
+          "kind": "missing_indicator",
+          "input_value": 11.028055555555556,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": 9.515048103878599e-06,
+          "contribution_percentage_points": 0.0009515048103878598,
+          "direction": "increases"
+        },
+        {
+          "feature": "missingindicator_author_historical_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.0004512407647445116,
+          "contribution_percentage_points": -0.04512407647445116,
+          "direction": "decreases"
+        },
+        {
+          "feature": "missingindicator_author_recent_failure_rate",
+          "kind": "missing_indicator",
+          "input_value": 0.0,
+          "value_used": 0.0,
+          "input_was_missing": false,
+          "contribution": -0.0006577533163977023,
+          "contribution_percentage_points": -0.06577533163977023,
+          "direction": "decreases"
+        }
+      ],
+      "ci_recommendation": {
+        "risk_level": "MEDIUM",
+        "priority": [
+          "Run fast unit checks early.",
+          "Run the remaining required checks in the normal pipeline."
+        ],
+        "change_evidence": {
+          "dependency_file_changed": "unknown",
+          "configuration_file_changed": "unknown",
+          "ci_workflow_changed": "unknown",
+          "docker_file_changed": "unknown"
+        },
+        "mandatory_checks_required": true,
+        "skip_tests": false,
+        "merge_permission": "Prediction does not authorize merging; required checks must pass."
+      },
+      "interpretation": "Contributions describe this model score relative to the training background; they are not proven failure causes."
+    }
+  ]
+}

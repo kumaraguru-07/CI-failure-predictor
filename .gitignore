@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Local data and generated artifacts
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+data/ci/
+artifacts/
+reports/ci_prediction.json
+reports/ci_prediction.md
+reports/prediction_outcome.json
+reports/downloaded-ci-model.zip
+models/*
+!models/.gitkeep
+reports/figures/*
+reports/metrics/*
+!reports/**/.gitkeep
+
+# Secrets and local configuration
+.env
+config/local.yaml
+.streamlit/secrets.toml
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+

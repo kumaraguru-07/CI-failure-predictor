@@ -1,0 +1,54 @@
+project:
+  name: failure-aware-ci
+  target: build_failed
+  timestamp_column: started_at
+  random_seed: 42
+
+data:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  required_columns:
+    - repository
+    - build_id
+    - started_at
+    - completed_at
+    - build_failed
+  adapter: mendeley_mggwn7rj9f_v1
+  source: https://data.mendeley.com/datasets/mggwn7rj9f/1
+  raw_filename: final_research_dataset_MASTER.csv
+  expected_sha256: b6a89418e39e6144f4ac71496256474c7bc27651e099557fe074d7798da1e73e
+  dataset_contract: docs/DATASET.md
+
+split:
+  strategy: chronological_distinct_timestamps
+  purge_unavailable_boundary_labels: true
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+
+risk_bands:
+  # Communication labels only; calibrate operational thresholds on validation data.
+  low_upper: 0.30
+  medium_upper: 0.60
+
+feature_policy:
+  # These must never be used from the current build.
+  forbidden_current_build_columns:
+    - build_duration
+    - failed_test_count
+    - failed_test_names
+    - build_log
+    - post_build_status
+  dependency_filenames:
+    - requirements.txt
+    - package.json
+    - package-lock.json
+    - pom.xml
+    - build.gradle
+    - pyproject.toml
+  configuration_filenames:
+    - Dockerfile
+    - docker-compose.yml
+    - .github/workflows
+
